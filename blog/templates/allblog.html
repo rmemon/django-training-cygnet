@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no"
+         />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <title>Rahil's Blog</title>
+      <!-- Bootstrap core CSS -->
+      <link
+         rel="stylesheet"
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+         />
+   </head>
+   <body>
+      <header>
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="{% url 'home' %}" class="navbar-brand">Rahil Memon</a>
+            <button
+               class="navbar-toggler"
+               type="button"
+               data-toggle="collapse"
+               data-target="#navbarNavAltMarkup"
+               aria-controls="navbarNavAltMarkup"
+               aria-expanded="false"
+               aria-label="Toggle navigation"
+               >
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+               <div class="navbar-nav ml-auto">
+                  <a href="{% url 'allblog' %}" class="nav-item nav-link active">Blog</a>
+               </div>
+            </div>
+         </nav>
+      </header>
+      <main role="main">
+         <div class="container">
+            <h1 class="text-center pt-3">Welcome to Rahil's Blog</h1>
+            <br />
+            <br />
+            <h2>Latest Posts</h2>
+            <hr />
+                {{ name }}
+
+            {% for blog in blogs %}
+            <a href="{% url 'detail' blog.id  %}"><h3> {{ blog.title }} </h3></a>
+            <img src="{{ blog.image.url }}" height="200" width="200" />
+            <p>{{ blog.summary }}</p>
+             <hr/>
+             {% endfor %}
+         </div>
+      </main>
+      <footer class="text-muted">
+         <div class="container text-center">
+            <p>© Rahil Memon</p>
+         </div>
+      </footer>
+   </body>
+</html>
